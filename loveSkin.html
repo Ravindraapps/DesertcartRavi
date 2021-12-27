@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Online Skincare Makeup Products</title>
+        <link rel="stylesheet" href="products_page.css">
+        <script src="https://kit.fontawesome.com/e4ab5f5716.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div id="optionsForSort">
+            <select name= "price" id="forPrice" onchange="priceSort()">
+            <option value="nofilter">Any Price</option>
+            <option value="1"> Below INR 1,000 </option>
+            <option value="2">INR 1,000 - INR 2000</option>
+            <option value="3">INR 2,000 - INR 3000</option>
+            <option value="4">INR 3,000 - INR 10000</option>
+            <option value="5"> INR 10000 + </option>
+            </select>
+            <select name="IMPORTED_FROM" id="forCountry" onchange="countrySort()">
+                <option value="nofilter">Any Country</option>
+                <option value="USA"> IMPORTED FROM USA</option>
+                <option value="UK">IMPORTED FROM UK</option>
+                <option value="UAE">IMPORTED FROM UAE</option>
+                <option value="INDIA">IMPORTED FROM INDIA</option>
+            </select>
+            <select name = "DELIVERY_TIME" id="fortime" onchange="deliverySort()">
+                <option value="0">Any delivery time</option>
+                <option value="1"> Same Day </option>
+                <option value="2"> 2 days </option>
+                <option value="4"> 3-5 days </option>
+                <option value="6"> 5-8days </option>
+                <option value="10"> 9-15days</option>
+                <option value="16"> 15+ days </option>
+            </select>
+            
+        </div>
+        <div id= "heading">
+            <h2>Online Skin-Care Makeup Shopping Store in India</h2>
+        </div>
+        
+        <div id="container">
+ 
+        </div>
+    </body>
+</html>
+<script>
+
+    var data = [
+        {
+           name: "L'Oreal Paris Makeup Visible Lift Radiance Booster, skincare-based primer, 24hr hydration, instantly brightens, smoothes and evens skin, radiant finish, enriched with nourishing oils, 0.84 fl; oz",
+           brand : "By L'Oreal Paris",
+           code :"ea",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "2,079" ,
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/31z1vc0u13L.jpg" 
+        },
+        {
+           name: "IT Cosmetics Your Skin But Better Foundation + Skincare, Medium Neutral 33 - Hydrating Coverage - Minimizes Pores & Imperfections, Natural Radiant Finish - With Hyaluronic Acid - 1.0 fl oz",
+           brand : "By IT Cosmetics",
+           code :"eb",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "4,639" ,
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4,
+           image: "https://m.media-amazon.com/images/I/71DZarKkh8L.jpg" 
+        },
+        {
+           name: "e.l.f. Jet Set Hydration Kit, Travel Friendly Skincare Set, Cleanser, Balm, Moisturizer, Eye Cream & Night Cream",
+           brand : "By E L F ",
+           code :"ec",
+           qty:1,
+           rating : 4.5 ,
+           MRP : " 2,349",
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4,
+           image: "https://m.media-amazon.com/images/I/61BI9OyRXNL.jpg" 
+        },
+        {
+           name: "EDELWEISS Skincare Fridge, Mini Fridge for Bedroom, Makeup Refrigerator, Tiny Cosmetic Beauty Fridge, Desk Fridge for Office, Small Breastmilk Fridge, Portable Design with Handle, 4 Liter/6 Can",
+           brand : "By Edelweiss",
+           code :"ed",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "10,129" ,
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/615v+OaGxfS.jpg" 
+        },
+        {
+           name: "MIUOPUR Makeup Organizer for Vanity, Large Capacity Desk Organizer with Drawers for Cosmetics, Lipsticks, Jewelry, Nail Care, Skincare, Ideal for Bedroom and Bathroom Countertops - Large Green",
+           brand : "By Miuopur",
+           code :"ef",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "5,569" ,
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/61guM5K-Q8L.jpg" 
+        },
+        {
+           name: "Makeup Organizer for Vanity, Desk Cosmetics Organizer with Drawers for Lipsticks, Lotions, Jewelry, Nail Care, Skincare, Ideal for Bedroom and Bathroom Countertops-White",
+           brand : "By Decorcode",
+           code :"eg",
+           qty:1,
+           rating : 4.1 ,
+           MRP : "4,299",
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/61HI58VDmDL.jpg" 
+        },
+        {
+           name: "Makeup Organizer, 360 Degree Rotating Adjustable Cosmetic Storage Display Case with 8 Layers Large Capacity, Fits Jewelry,Makeup Brushes, Lipsticks and More, Clear Transparent",
+           brand : "By Ameitech",
+           code :"eh",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "8,369",
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/71nbLhXBIES.jpg" 
+        },
+        {
+           name: "Makeup Organizer, BIRDBELL Cosmetic Display Cases with Brush and Lipstick Organizer, Dust Water Proof Cosmetics Storage Display skincare Case, Suitable for Bathroom Countertop and Bedroom Vanity Dresser (White)",
+           brand : "By Birdbell",
+           code :"ei",
+           qty:1,
+           rating : 4.4 ,
+           MRP : " 1,2999",
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/716fP6vLYCS.jpg" 
+        },
+        {
+           name: "Farmacy Farmer's Market Skincare Gift Set - Mini Sizes of Facial Skin Care Products - Includes Green Clean Makeup Remover and Honey Potion",
+           brand : "By Farmacy",
+           code :"ej",
+           qty:1,
+           rating : 4.2 ,
+           MRP : "5,589",
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/81Mcfy31UzL.jpg" 
+        },
+        {
+           name: "AUEAR, 3 Pack Metal Makeup Spatula Mini Curved Cosmetic Skincare Facial Cream Lotions Moisturizers Spoon Beauty Scoop for Mixing and Sampling",
+           brand : "By Auear",
+           code :"ek",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "949",
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/61iNynAm0AL.jpg" 
+        },
+        {
+           name: "3 Pack Spa Headbands, Elastic Microfiber Headband For Washing Face, Yoga Sports Shower Facial Makeup Headband, Skincare Headbands, Coral Fleece Bowknot Hair Bands For Women (White,Pink, Brown)",
+           brand : "By Jaymag",
+           code :"el",
+           qty:1,
+           rating : 4.0 ,
+           MRP : "1,649",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/71XIKer4YlS.jpg" 
+        },
+        {
+           name: "EltaMD UV Clear Facial Sunscreen Broad-Spectrum SPF 46 for Sensitive or Acne-Prone Skin, Oil-free, Dermatologist-Recommended Mineral-Based Zinc Oxide Formula, 1. 7 oz",
+           brand : "By Elta Md",
+           code :"em",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "7,069",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/6173i2JKFEL.jpg" 
+        },
+        {
+           name: "Bioderma Atoderm Huile de douche Anti-irritation cleansing oil sensitive dry to atopic skin, 200 ml",
+           brand : "By Bioderma",
+           code :"en",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "1,839",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/51NE+k0xCzS.jpg" 
+        },
+        {
+           name: "3 Pack Makeup Headband, Adjustable Spa Facial Headbands Terry Cloth Stretch Make Up Wrap for Face Washing, Shower, Facial Mask, Yoga, Sport Headband with Magic Tape For Women(Multicolor)",
+           brand : "By Jaymag",
+           code :"eo",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "1,369",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/81wwlJ9rskS.jpg" 
+        },
+        {
+           name: "Aida Beauty Bamboo charcoal fibre face brushes soft face wash/face scrub/facial cleanser/facial skin care",
+           brand : "By Generic",
+           code :"ep",
+           qty:1,
+           rating : 3.9 ,
+           MRP : "1,099",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/41lXDxmpd5S.jpg" 
+        },
+        {
+           name: "Travel Makeup Bag,Portable Travel Makeup Cosmetic Case Organizer Artist Storage Bag with Adjustable Dividers for Cosmetics Makeup Brushes Toiletry Jewelry Digital Accessories",
+           brand : "By Others",
+           code :"eq",
+           qty:1,
+           rating : 3.3 ,
+           MRP : "2,089",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/71L8Xa7QD-L.jpg" 
+        },
+        {
+           name: "GRACE DAY Snail Cellulose Mask, 27 ml",
+           brand : "By Grace Day ",
+           code :"er",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "243",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/91OCvJckCKS.jpg" 
+        },
+        {
+           name: "Acrylic Eyeshadow Makeup Organizer | 16 Space Cosmetic Storage (CLEAR)",
+           brand : "By ",
+           code :"es",
+           qty:1,
+           rating : 3.4 ,
+           MRP : "1,349",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/81P+P2fa+UL.jpg" 
+        },
+        {
+           name: "Seoul Ceuticals Korean Skin Care Snail Repair Cream Moisturizer - 97.5% Snail Mucin Extract - All In One Recovery Power For The Most Effective Korean Beauty Routine - 2oz",
+           brand : "By Seoul ",
+           code :"et",
+           qty:1,
+           rating : 3.6 ,
+           MRP : "4,239",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/71BeHZD-kKL.jpg" 
+        },
+        {
+           name: "SOLDOUT™ 6 PCS/Set Facial Skin Care DIY Mask Bowl Mixing Tool Set with Brush Mixed Stir Spatula Stick Measuring Spoon Kit Cream Applicator (Pack of 6, Pink)",
+           brand : "By Soldout",
+           code :"eu",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "1,509",
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/31IwDHjN5LS.jpg" 
+        },
+        {
+           name: "L'Oreal Paris Makeup Visible Lift Radiance Booster, skincare-based primer, 24hr hydration, instantly brightens, smoothes and evens skin, radiant finish, enriched with nourishing oils, 0.84 fl; oz",
+           brand : "By L'Oreal Paris",
+           code :"ev",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "2,079" ,
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/31z1vc0u13L.jpg" 
+        },
+        {
+           name: "IT Cosmetics Your Skin But Better Foundation + Skincare, Medium Neutral 33 - Hydrating Coverage - Minimizes Pores & Imperfections, Natural Radiant Finish - With Hyaluronic Acid - 1.0 fl oz",
+           brand : "By IT Cosmetics",
+           code :"ew",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "4,639" ,
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4,
+           image: "https://m.media-amazon.com/images/I/71DZarKkh8L.jpg" 
+        },
+        {
+           name: "e.l.f. Jet Set Hydration Kit, Travel Friendly Skincare Set, Cleanser, Balm, Moisturizer, Eye Cream & Night Cream",
+           brand : "By E L F ",
+           code :"ex",
+           qty:1,
+           rating : 4.5 ,
+           MRP : " 2,349",
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4,
+           image: "https://m.media-amazon.com/images/I/61BI9OyRXNL.jpg" 
+        },
+        {
+           name: "EDELWEISS Skincare Fridge, Mini Fridge for Bedroom, Makeup Refrigerator, Tiny Cosmetic Beauty Fridge, Desk Fridge for Office, Small Breastmilk Fridge, Portable Design with Handle, 4 Liter/6 Can",
+           brand : "By Edelweiss",
+           code :"ey",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "10,129" ,
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/615v+OaGxfS.jpg" 
+        },
+        {
+           name: "MIUOPUR Makeup Organizer for Vanity, Large Capacity Desk Organizer with Drawers for Cosmetics, Lipsticks, Jewelry, Nail Care, Skincare, Ideal for Bedroom and Bathroom Countertops - Large Green",
+           brand : "By Miuopur",
+           code :"ez",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "5,569" ,
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/61guM5K-Q8L.jpg" 
+        },
+        {
+           name: "Makeup Organizer for Vanity, Desk Cosmetics Organizer with Drawers for Lipsticks, Lotions, Jewelry, Nail Care, Skincare, Ideal for Bedroom and Bathroom Countertops-White",
+           brand : "By Decorcode",
+           code :"eA",
+           qty:1,
+           rating : 4.1 ,
+           MRP : "4,299",
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/61HI58VDmDL.jpg" 
+        },
+        {
+           name: "Makeup Organizer, 360 Degree Rotating Adjustable Cosmetic Storage Display Case with 8 Layers Large Capacity, Fits Jewelry,Makeup Brushes, Lipsticks and More, Clear Transparent",
+           brand : "By Ameitech",
+           code :"eB",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "8,369",
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/71nbLhXBIES.jpg" 
+        },
+        {
+           name: "Makeup Organizer, BIRDBELL Cosmetic Display Cases with Brush and Lipstick Organizer, Dust Water Proof Cosmetics Storage Display skincare Case, Suitable for Bathroom Countertop and Bedroom Vanity Dresser (White)",
+           brand : "By Birdbell",
+           code :"eC",
+           qty:1,
+           rating : 4.4 ,
+           MRP : " 1,2999",
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/716fP6vLYCS.jpg" 
+        },
+        {
+           name: "Farmacy Farmer's Market Skincare Gift Set - Mini Sizes of Facial Skin Care Products - Includes Green Clean Makeup Remover and Honey Potion",
+           brand : "By Farmacy",
+           code :"eD",
+           qty:1,
+           rating : 4.2 ,
+           MRP : "5,589",
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10,
+           image: "https://m.media-amazon.com/images/I/81Mcfy31UzL.jpg" 
+        },
+        {
+           name: "AUEAR, 3 Pack Metal Makeup Spatula Mini Curved Cosmetic Skincare Facial Cream Lotions Moisturizers Spoon Beauty Scoop for Mixing and Sampling",
+           brand : "By Auear",
+           code :"eE",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "949",
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "19-25 days",
+           range: 16,
+           image: "https://m.media-amazon.com/images/I/61iNynAm0AL.jpg" 
+        },
+        {
+           name: "3 Pack Spa Headbands, Elastic Microfiber Headband For Washing Face, Yoga Sports Shower Facial Makeup Headband, Skincare Headbands, Coral Fleece Bowknot Hair Bands For Women (White,Pink, Brown)",
+           brand : "By Jaymag",
+           code :"eF",
+           qty:1,
+           rating : 4.0 ,
+           MRP : "1,649",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/71XIKer4YlS.jpg" 
+        },
+        {
+           name: "EltaMD UV Clear Facial Sunscreen Broad-Spectrum SPF 46 for Sensitive or Acne-Prone Skin, Oil-free, Dermatologist-Recommended Mineral-Based Zinc Oxide Formula, 1. 7 oz",
+           brand : "By Elta Md",
+           code :"eI",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "7,069",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/6173i2JKFEL.jpg" 
+        },
+        {
+           name: "Bioderma Atoderm Huile de douche Anti-irritation cleansing oil sensitive dry to atopic skin, 200 ml",
+           brand : "By Bioderma",
+           code :"eJ",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "1,839",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "1-2 days",
+           range: 2,
+           image: "https://m.media-amazon.com/images/I/51NE+k0xCzS.jpg" 
+        },
+        {
+           name: "3 Pack Makeup Headband, Adjustable Spa Facial Headbands Terry Cloth Stretch Make Up Wrap for Face Washing, Shower, Facial Mask, Yoga, Sport Headband with Magic Tape For Women(Multicolor)",
+           brand : "By Jaymag",
+           code :"eK",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "1,369",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "15+ days",
+           range: 16,
+           image: "https://m.media-amazon.com/images/I/81wwlJ9rskS.jpg" 
+        },
+        {
+           name: "Aida Beauty Bamboo charcoal fibre face brushes soft face wash/face scrub/facial cleanser/facial skin care",
+           brand : "By Generic",
+           code :"eL",
+           qty:1,
+           rating : 3.9 ,
+           MRP : "1,099",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/41lXDxmpd5S.jpg" 
+        },
+        {
+           name: "Travel Makeup Bag,Portable Travel Makeup Cosmetic Case Organizer Artist Storage Bag with Adjustable Dividers for Cosmetics Makeup Brushes Toiletry Jewelry Digital Accessories",
+           brand : "By Others",
+           code :"eM",
+           qty:1,
+           rating : 3.3 ,
+           MRP : "2,089",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6,
+           image: "https://m.media-amazon.com/images/I/71L8Xa7QD-L.jpg" 
+        },
+        {
+           name: "GRACE DAY Snail Cellulose Mask, 27 ml",
+           brand : "By Grace Day ",
+           code :"eN",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "243",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4,
+           image: "https://m.media-amazon.com/images/I/91OCvJckCKS.jpg" 
+        },
+        {
+           name: "Acrylic Eyeshadow Makeup Organizer | 16 Space Cosmetic Storage (CLEAR)",
+           brand : "By ",
+           code :"eO",
+           qty:1,
+           rating : 3.4 ,
+           MRP : "1,349",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "same day",
+           range: 1,
+           image: "https://m.media-amazon.com/images/I/81P+P2fa+UL.jpg" 
+        },
+        {
+           name: "Seoul Ceuticals Korean Skin Care Snail Repair Cream Moisturizer - 97.5% Snail Mucin Extract - All In One Recovery Power For The Most Effective Korean Beauty Routine - 2oz",
+           brand : "By Seoul ",
+           code :"eP",
+           qty:1,
+           rating : 3.6 ,
+           MRP : "4,239",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4,
+           image: "https://m.media-amazon.com/images/I/71BeHZD-kKL.jpg" 
+        },
+        {
+           name: "SOLDOUT™ 6 PCS/Set Facial Skin Care DIY Mask Bowl Mixing Tool Set with Brush Mixed Stir Spatula Stick Measuring Spoon Kit Cream Applicator (Pack of 6, Pink)",
+           brand : "By Soldout",
+           code :"eQ",
+           qty:1,
+           rating : 4.3 ,
+           MRP : "1,509",
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4,
+           image: "https://m.media-amazon.com/images/I/31IwDHjN5LS.jpg" 
+        },              
+    ]
+
+    function priceSort(){
+        var select = document.querySelector("#forPrice").value;  
+        if(select == "nofilter"){
+            displayProducts(data);
+        }
+        else if(select == 1){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices < 1000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1);
+       } 
+       else if(select == 2){
+        var level1 = data.filter(function(item){
+           var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 1000 && prices < 2000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+       else if(select == 3){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 2000 && prices < 3000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+       else if(select == 4){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 3000 && prices < 10000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+       else if(select == 5){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 10000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+    }
+
+    function countrySort(){
+        var select = document.querySelector("#forCountry").value;
+        console.log(select);
+
+        var selected = data.filter(function(item){
+            if(select === item.from) return item ;
+            if(select == "nofilter") return item ;
+        });
+           displayProducts(selected);
+        }
+
+    function deliverySort(){
+        var select = Number(document.querySelector("#fortime").value);
+ 
+
+        var selected = data.filter(function(item){
+            var days = item.range ;
+            if(select === 0) return item ;
+            else if(select === days) return item ;
+            
+        });
+             displayProducts(selected);
+        }
+    
+
+
+    displayProducts(data);
+
+    function displayProducts(data){
+        document.querySelector("#container").innerHTML = "";
+        data.map(function(item){
+            var prodiv = document.createElement("div");
+            prodiv.setAttribute("id","maindiv");
+            prodiv.addEventListener("click",function(){
+               productShow(item);
+            });
+
+            var image = document.createElement("img");
+            image.setAttribute("id","picture");
+            image.setAttribute("src",item.image)
+
+            var ptag1 = document.createElement("p");
+            ptag1.setAttribute("id","nameofprod");
+            ptag1.textContent = item.name ;
+
+            var ptag2 = document.createElement("p");
+            ptag2.setAttribute("id","brandofprod");
+            ptag2.textContent = item.brand ;
+
+            var personaldiv = document.createElement("div");
+            personaldiv.setAttribute("id","sub1div");
+
+            var leftdiv = document.createElement("div");
+            leftdiv.setAttribute("id","div1");
+
+            var rightdiv = document.createElement("div");
+            rightdiv.setAttribute("id","div2");
+
+            var rightdiv1 = document.createElement("div");
+            rightdiv1.setAttribute("id","divr1");
+
+            var rightdiv2 = document.createElement("div");
+            rightdiv2.setAttribute("id","divr2");
+
+            var rating1 = document.createElement("p");
+            rating1.setAttribute("id","rating");
+            rating1.innerHTML =`<i style="color: #4cb9eb" class="fas fa-star"></i> ${item.rating}`;
+            
+            var price = document.createElement("p");
+            price.setAttribute("id","cost");
+            price.textContent = "₹ " + item.MRP ;
+
+            var origin = document.createElement("p");
+            origin.setAttribute("id","fromCounty");
+            origin.textContent = "from " + item.from ;  
+
+            var dispatch = document.createElement("p");
+            dispatch.setAttribute("id","toCounty");
+            dispatch.textContent = "to "+item.toCountry;
+
+            var when = document.createElement("p");
+            when.setAttribute("id","delivery");
+            when.textContent = "in "+item.delivery ;
+            
+            var symbols = document.createElement("img");
+            symbols.setAttribute("id","imagesymbol");
+            symbols.setAttribute("src","Screenshot 2021-11-09 at 11.07.27 AM.png")
+            
+            leftdiv.append(rating1, price);
+
+            rightdiv1.append(origin,dispatch, when);
+
+            rightdiv2.append(symbols);
+
+            rightdiv.append(rightdiv1,rightdiv2);
+            
+            personaldiv.append(leftdiv, rightdiv);
+            prodiv.append(image , ptag1 ,ptag2 ,personaldiv) ;
+
+            document.querySelector("#container").append(prodiv);
+
+        });
+
+ 
+      function productShow(item){
+         var product = item;
+         localStorage.setItem("SelectedProduct", JSON.stringify(product)); 
+         window.location.href = "productShow.html" ;
+        } 
+    }     
+</script>

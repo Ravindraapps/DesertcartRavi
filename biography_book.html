@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Online Books Biography Products</title> 
+        <link rel="stylesheet" href="products_page.css">
+        <script src="https://kit.fontawesome.com/e4ab5f5716.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="optionsForSort">
+            <select name= "price" id="forPrice" onchange="priceSort()">
+            <option value="nofilter">Any Price</option>
+            <option value="1"> Below INR 1,000 </option>
+            <option value="2">INR 1,000 - INR 2000</option>
+            <option value="3">INR 2,000 - INR 3000</option>
+            <option value="4">INR 3,000 - INR 10000</option>
+            <option value="5"> INR 10000 + </option>
+            </select>
+            <select name="IMPORTED_FROM" id="forCountry" onchange="countrySort()">
+                <option value="nofilter">Any Country</option>
+                <option value="USA"> IMPORTED FROM USA</option>
+                <option value="UK">IMPORTED FROM UK</option>
+                <option value="UAE">IMPORTED FROM UAE</option>
+                <option value="INDIA">IMPORTED FROM INDIA</option>
+            </select>
+            <select name = "DELIVERY_TIME" id="fortime" onchange="deliverySort()">
+                <option value="0">Any delivery time</option>
+                <option value="1"> Same Day </option>
+                <option value="2"> 2 days </option>
+                <option value="4"> 3-5 days </option>
+                <option value="6"> 5-8days </option>
+                <option value="10"> 9-15days</option>
+                <option value="16"> 15+ days </option>
+            </select>
+            
+        </div>
+        <div id= "heading">
+            <h2>Online Biography Books Shopping Store in India</h2>
+        </div>
+        
+        <div id="container">
+ 
+        </div>
+    </body>
+</html>
+<script>
+
+    var data = [
+        {
+           name : "hey Never Threw Anything Away: Memories of the Great Depression by Americans Who Lived It Paperback – March 29, 2021",
+           brand : "By Ed Linz",
+           code :"OC",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "4,219" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51+kVA07f9L.jpg" 
+        }, {
+           name : "The Lyrics: 1956 to the Present Hardcover – November 2, 2021",
+           brand : "By Paul Mccartneypaul Muldoon",
+           code :"OD",
+           qty:1,
+           rating : 4.2 ,
+           MRP : "16,189" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41biXPTCPyL.jpg" 
+        }, {
+           name : "The Last Castle: The Epic Story of Love, Loss, and American Royalty in the Nation's Largest Home",
+           brand : "By Denise Kiernan",
+           code :"OE",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "1,489" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/517jnJLdMDL.jpg" 
+        }, {
+           name : "The Pioneers: The Heroic Story of the Settlers Who Brought the American Ideal West",
+           brand : "By David Mccullough",
+           code :"OF",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "2,539" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51EmHR-UxEL.jpg" 
+        }, {
+           name : "Eleanor",
+           brand : "By David Michaelis",
+           code :"OG",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,609" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41olVX88szL.jpg" 
+        }, {
+           name : "MOX Hardcover – November 2, 2021",
+           brand : "By Jon Moxley",
+           code :"OH",
+           qty:1,
+           rating : 5 ,
+           MRP : "3,989" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41tJwpZZgjS.jpg" 
+        }, {
+           name : "Electric City: The Lost History of Ford and Edison’s American Utopia Hardcover – May 18, 2021",
+           brand : "By Thomas Hager",
+           code :"OI",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "3,769" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51VyvvHv9VL.jpg" 
+        }, {
+           name : "Do You Feel Like I Do?: A Memoir",
+           brand : "By Peter Frampton",
+           code :"OJ",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,409" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51etg8y-3QS.jpg" 
+        }, {
+           name : "Hitler: Downfall: 1939-1945 Paperback – September 14, 2021",
+           brand : "By Volker Ullrich",
+           code :"OK",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "3,609" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41SlRUm17oL.jpg" 
+        }, {
+           name : "The Boys: A Memoir of Hollywood and Family Hardcover – October 12, 2021",
+           brand : "By Ron Howard",
+           code :"OL",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,989" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51oGyn4VrzL.jpg" 
+        }, {
+           name : "The Story of Simone Biles: A Biography Book for New Readers (The Story Of: A Biography Series for New Readers) Paperback – September 29, 2020",
+           brand : "By Rachelle Burk",
+           code :"OM",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "1,429" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51TcxZcO8vL.jpg" 
+        }, {
+           name : "Every Day Is a Gift: A Memoir Hardcover – March 30, 2021",
+           brand : "By Tammy Duckworth",
+           code :"ON",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "2,699" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51V-X70pdgL.jpg" 
+        }, {
+           name : "Madam: The Biography of Polly Adler, Icon of the Jazz Age Hardcover – November 2, 2021",
+           brand : "By Applegate",
+           code :"OO",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "5,739" ,  
+           from : "USA",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/418hJp2N5DL.jpg" 
+        },
+
+        {
+           name : "hey Never Threw Anything Away: Memories of the Great Depression by Americans Who Lived It Paperback – March 29, 2021",
+           brand : "By Ed Linz",
+           code :"OP",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "4,219" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51+kVA07f9L.jpg" 
+        }, {
+           name : "The Lyrics: 1956 to the Present Hardcover – November 2, 2021",
+           brand : "By Paul Mccartneypaul Muldoon",
+           code :"OQ",
+           qty:1,
+           rating : 4.2 ,
+           MRP : "16,189" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41biXPTCPyL.jpg" 
+        }, {
+           name : "The Last Castle: The Epic Story of Love, Loss, and American Royalty in the Nation's Largest Home",
+           brand : "By Denise Kiernan",
+           code :"OR",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "1,489" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/517jnJLdMDL.jpg" 
+        }, {
+           name : "The Pioneers: The Heroic Story of the Settlers Who Brought the American Ideal West",
+           brand : "By David Mccullough",
+           code :"OS",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "2,539" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51EmHR-UxEL.jpg" 
+        }, {
+           name : "Eleanor",
+           brand : "By David Michaelis",
+           code :"OT",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,609" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41olVX88szL.jpg" 
+        }, {
+           name : "MOX Hardcover – November 2, 2021",
+           brand : "By Jon Moxley",
+           code :"OU",
+           qty:1,
+           rating : 5 ,
+           MRP : "3,989" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41tJwpZZgjS.jpg" 
+        }, {
+           name : "Electric City: The Lost History of Ford and Edison’s American Utopia Hardcover – May 18, 2021",
+           brand : "By Thomas Hager",
+           code :"OV",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "3,769" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51VyvvHv9VL.jpg" 
+        }, {
+           name : "Do You Feel Like I Do?: A Memoir",
+           brand : "By Peter Frampton",
+           code :"OW",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,409" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51etg8y-3QS.jpg" 
+        }, {
+           name : "Hitler: Downfall: 1939-1945 Paperback – September 14, 2021",
+           brand : "By Volker Ullrich",
+           code :"OX",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "3,609" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41SlRUm17oL.jpg" 
+        }, {
+           name : "The Boys: A Memoir of Hollywood and Family Hardcover – October 12, 2021",
+           brand : "By Ron Howard",
+           code :"OY",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,989" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51oGyn4VrzL.jpg" 
+        }, {
+           name : "The Story of Simone Biles: A Biography Book for New Readers (The Story Of: A Biography Series for New Readers) Paperback – September 29, 2020",
+           brand : "By Rachelle Burk",
+           code :"OZ",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "1,429" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51TcxZcO8vL.jpg" 
+        }, {
+           name : "Every Day Is a Gift: A Memoir Hardcover – March 30, 2021",
+           brand : "By Tammy Duckworth",
+           code :"PA",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "2,699" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51V-X70pdgL.jpg" 
+        }, {
+           name : "Madam: The Biography of Polly Adler, Icon of the Jazz Age Hardcover – November 2, 2021",
+           brand : "By Applegate",
+           code :"PB",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "5,739" ,  
+           from : "UK",
+           toCountry : "INDIA",
+           delivery : "9-15 days",
+           range: 10, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/418hJp2N5DL.jpg" 
+        },
+
+        {
+           name : "hey Never Threw Anything Away: Memories of the Great Depression by Americans Who Lived It Paperback – March 29, 2021",
+           brand : "By Ed Linz",
+           code :"PC",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "4,219" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51+kVA07f9L.jpg" 
+        }, {
+           name : "The Lyrics: 1956 to the Present Hardcover – November 2, 2021",
+           brand : "By Paul Mccartneypaul Muldoon",
+           code :"PD",
+           qty:1,
+           rating : 4.2 ,
+           MRP : "16,189" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41biXPTCPyL.jpg" 
+        }, {
+           name : "The Last Castle: The Epic Story of Love, Loss, and American Royalty in the Nation's Largest Home",
+           brand : "By Denise Kiernan",
+           code :"PE",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "1,489" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/517jnJLdMDL.jpg" 
+        }, {
+           name : "The Pioneers: The Heroic Story of the Settlers Who Brought the American Ideal West",
+           brand : "By David Mccullough",
+           code :"PF",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "2,539" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51EmHR-UxEL.jpg" 
+        }, {
+           name : "Eleanor",
+           brand : "By David Michaelis",
+           code :"PG",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,609" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41olVX88szL.jpg" 
+        }, {
+           name : "MOX Hardcover – November 2, 2021",
+           brand : "By Jon Moxley",
+           code :"PH",
+           qty:1,
+           rating : 5 ,
+           MRP : "3,989" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41tJwpZZgjS.jpg" 
+        }, {
+           name : "Electric City: The Lost History of Ford and Edison’s American Utopia Hardcover – May 18, 2021",
+           brand : "By Thomas Hager",
+           code :"PI",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "3,769" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51VyvvHv9VL.jpg" 
+        }, {
+           name : "Do You Feel Like I Do?: A Memoir",
+           brand : "By Peter Frampton",
+           code :"PJ",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,409" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51etg8y-3QS.jpg" 
+        }, {
+           name : "Hitler: Downfall: 1939-1945 Paperback – September 14, 2021",
+           brand : "By Volker Ullrich",
+           code :"PK",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "3,609" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41SlRUm17oL.jpg" 
+        }, {
+           name : "The Boys: A Memoir of Hollywood and Family Hardcover – October 12, 2021",
+           brand : "By Ron Howard",
+           code :"PL",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,989" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51oGyn4VrzL.jpg" 
+        }, {
+           name : "The Story of Simone Biles: A Biography Book for New Readers (The Story Of: A Biography Series for New Readers) Paperback – September 29, 2020",
+           brand : "By Rachelle Burk",
+           code :"PM",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "1,429" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51TcxZcO8vL.jpg" 
+        }, {
+           name : "Every Day Is a Gift: A Memoir Hardcover – March 30, 2021",
+           brand : "By Tammy Duckworth",
+           code :"PN",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "2,699" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51V-X70pdgL.jpg" 
+        }, {
+           name : "Madam: The Biography of Polly Adler, Icon of the Jazz Age Hardcover – November 2, 2021",
+           brand : "By Applegate",
+           code :"PO",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "5,739" ,  
+           from : "UAE",
+           toCountry : "INDIA",
+           delivery : "5-8 days",
+           range: 6, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/418hJp2N5DL.jpg" 
+        },
+
+        {
+           name : "hey Never Threw Anything Away: Memories of the Great Depression by Americans Who Lived It Paperback – March 29, 2021",
+           brand : "By Ed Linz",
+           code :"PP",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "4,219" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51+kVA07f9L.jpg" 
+        }, {
+           name : "The Lyrics: 1956 to the Present Hardcover – November 2, 2021",
+           brand : "By Paul Mccartneypaul Muldoon",
+           code :"PQ",
+           qty:1,
+           rating : 4.2 ,
+           MRP : "16,189" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41biXPTCPyL.jpg" 
+        }, {
+           name : "The Last Castle: The Epic Story of Love, Loss, and American Royalty in the Nation's Largest Home",
+           brand : "By Denise Kiernan",
+           code :"PR",
+           qty:1,
+           rating : 4.4 ,
+           MRP : "1,489" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/517jnJLdMDL.jpg" 
+        }, {
+           name : "The Pioneers: The Heroic Story of the Settlers Who Brought the American Ideal West",
+           brand : "By David Mccullough",
+           code :"PS",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "2,539" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51EmHR-UxEL.jpg" 
+        }, {
+           name : "Eleanor",
+           brand : "By David Michaelis",
+           code :"PT",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,609" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41olVX88szL.jpg" 
+        }, {
+           name : "MOX Hardcover – November 2, 2021",
+           brand : "By Jon Moxley",
+           code :"PU",
+           qty:1,
+           rating : 5 ,
+           MRP : "3,989" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41tJwpZZgjS.jpg" 
+        }, {
+           name : "Electric City: The Lost History of Ford and Edison’s American Utopia Hardcover – May 18, 2021",
+           brand : "By Thomas Hager",
+           code :"PV",
+           qty:1,
+           rating : 4.5 ,
+           MRP : "3,769" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51VyvvHv9VL.jpg" 
+        }, {
+           name : "Do You Feel Like I Do?: A Memoir",
+           brand : "By Peter Frampton",
+           code :"PW",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,409" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51etg8y-3QS.jpg" 
+        }, {
+           name : "Hitler: Downfall: 1939-1945 Paperback – September 14, 2021",
+           brand : "By Volker Ullrich",
+           code :"PX",
+           qty:1,
+           rating : 4.6 ,
+           MRP : "3,609" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/41SlRUm17oL.jpg" 
+        }, {
+           name : "The Boys: A Memoir of Hollywood and Family Hardcover – October 12, 2021",
+           brand : "By Ron Howard",
+           code :"PY",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "3,989" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51oGyn4VrzL.jpg" 
+        }, {
+           name : "The Story of Simone Biles: A Biography Book for New Readers (The Story Of: A Biography Series for New Readers) Paperback – September 29, 2020",
+           brand : "By Rachelle Burk",
+           code :"PZ",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "1,429" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51TcxZcO8vL.jpg" 
+        }, {
+           name : "Every Day Is a Gift: A Memoir Hardcover – March 30, 2021",
+           brand : "By Tammy Duckworth",
+           code :"QA",
+           qty:1,
+           rating : 4.8 ,
+           MRP : "2,699" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/51V-X70pdgL.jpg" 
+        }, {
+           name : "Madam: The Biography of Polly Adler, Icon of the Jazz Age Hardcover – November 2, 2021",
+           brand : "By Applegate",
+           code :"QB",
+           qty:1,
+           rating : 4.7 ,
+           MRP : "5,739" ,  
+           from : "INDIA",
+           toCountry : "INDIA",
+           delivery : "3-5 days",
+           range: 4, 
+           image: "https://images-na.ssl-images-amazon.com/images/I/418hJp2N5DL.jpg" 
+        },
+    ]
+
+    function priceSort(){
+        var select = document.querySelector("#forPrice").value;  
+        if(select == "nofilter"){
+            displayProducts(data);
+        }
+        else if(select == 1){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices < 1000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1);
+       } 
+       else if(select == 2){
+        var level1 = data.filter(function(item){
+           var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 1000 && prices < 2000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+       else if(select == 3){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 2000 && prices < 3000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+       else if(select == 4){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 3000 && prices < 10000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+       else if(select == 5){
+        var level1 = data.filter(function(item){
+         var cost =item.MRP;
+           cost = String(cost);
+           var prices = cost.replace(",","");
+           prices = Number(prices);
+             if(prices >= 10000) {
+                return item;
+             } 
+        }); 
+        displayProducts(level1); 
+       }
+    }
+    
+
+    function countrySort(){
+        var select = document.querySelector("#forCountry").value;
+        console.log(select);
+
+        var selected = data.filter(function(item){
+            if(select === item.from) return item ;
+            if(select == "nofilter") return item ;
+        });
+           displayProducts(selected);
+        }
+
+    function deliverySort(){
+        var select = Number(document.querySelector("#fortime").value);
+ 
+
+        var selected = data.filter(function(item){
+            var days = item.range ;
+            if(select === 0) return item ;
+            else if(select === days) return item ;
+            
+        });
+             displayProducts(selected);
+        }
+    
+
+
+    displayProducts(data);
+    
+    function displayProducts(data){
+        document.querySelector("#container").innerHTML = "";
+        data.map(function(item){
+            var prodiv = document.createElement("div");
+            prodiv.setAttribute("id","maindiv");
+            prodiv.addEventListener("click",function(){
+               productShow(item);
+            });
+
+            var image = document.createElement("img");
+            image.setAttribute("id","picture");
+            image.setAttribute("src",item.image)
+
+            var ptag1 = document.createElement("p");
+            ptag1.setAttribute("id","nameofprod");
+            ptag1.textContent = item.name ;
+
+            var ptag2 = document.createElement("p");
+            ptag2.setAttribute("id","brandofprod");
+            ptag2.textContent = item.brand ;
+
+            var personaldiv = document.createElement("div");
+            personaldiv.setAttribute("id","sub1div");
+
+            var leftdiv = document.createElement("div");
+            leftdiv.setAttribute("id","div1");
+
+            var rightdiv = document.createElement("div");
+            rightdiv.setAttribute("id","div2");
+
+            var rightdiv1 = document.createElement("div");
+            rightdiv1.setAttribute("id","divr1");
+
+            var rightdiv2 = document.createElement("div");
+            rightdiv2.setAttribute("id","divr2");
+
+            var rating1 = document.createElement("p");
+            rating1.setAttribute("id","rating");
+            rating1.innerHTML =`<i style="color: #4cb9eb" class="fas fa-star"></i> ${item.rating}`;
+            
+            var price = document.createElement("p");
+            price.setAttribute("id","cost");
+            price.textContent = "₹ " + item.MRP ;
+
+            var origin = document.createElement("p");
+            origin.setAttribute("id","fromCounty");
+            origin.textContent = "from " + item.from ;  
+
+            var dispatch = document.createElement("p");
+            dispatch.setAttribute("id","toCounty");
+            dispatch.textContent = "to "+item.toCountry;
+
+            var when = document.createElement("p");
+            when.setAttribute("id","delivery");
+            when.textContent = "in "+item.delivery ;
+            
+            var symbols = document.createElement("img");
+            symbols.setAttribute("id","imagesymbol");
+            symbols.setAttribute("src","Screenshot 2021-11-09 at 11.07.27 AM.png")
+            
+            leftdiv.append(rating1, price);
+
+            rightdiv1.append(origin,dispatch, when);
+
+            rightdiv2.append(symbols);
+
+            rightdiv.append(rightdiv1,rightdiv2);
+            
+            personaldiv.append(leftdiv, rightdiv);
+            prodiv.append(image , ptag1 ,ptag2 ,personaldiv) ;
+
+            document.querySelector("#container").append(prodiv);
+
+        }); 
+    
+
+      function productShow(item){
+         var product = item;
+         localStorage.setItem("SelectedProduct", JSON.stringify(product)); 
+         window.location.href = "productShow.html" ;
+        } 
+    }
+</script>
